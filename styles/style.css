@@ -10,7 +10,508 @@
 
 */
 
+
+/* Стили для основной страницы */
+
 .page {
+  display: grid;
+  gap: 100px;
+  margin-top: 100px;
+  justify-content: center;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' var(--main-font-body-weight);
+  background-image: var(--gradient-horizontal), var(--gradient-vertical), var(--gradient-vertical-decorative);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+/* Стили для шапки страницы */
+
+.header {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  font-family: var(--accent-font);
+  padding:
+  clamp(122px, 10vw + 80px, 130px)
+  clamp(16px, 10vw, 122px);
+  height: fit-content;
+}
+
+/* Стили для заголовка в шапке */
+
+.title {
+  font-size: clamp(3.0625rem, 2vw + 2.5rem, 4.0625rem);
+}
+
+/* Стили для подзаголовка в шапке */
+
+.subtitle{
+  font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.4375rem);
+  text-transform: uppercase;
+}
+
+/* Стили для класса с просчитанной шириной  */
+
+.section-settings {
+  width: var(--section-width);
+  background-color: var(--background-color);
+  border: 2px solid var(--main-color);
+  height: 100%;
+}
+
+/* Стили для заголовка в карточке  */
+
+.subsubtitle{
+  font-size: var(--main-font-size);
+  line-height: var(--main-font-line-height);
+  font-variation-settings: "wght" var(--main-font-title-weight);
+  padding: 4px 10px;
+}
+
+/* Стили для обёртки основного контента */
+
+.content{
+  display: grid;
+  gap: 50px;
+  justify-items: center;
+}
+
+/* Стили для нижней обертки в карточке*/
+
+.card-bottom-section {
+  display: grid;
+  gap: 25px;
+  font-size: var(--main-font-size);
+  line-height: var(--main-font-line-height);
+  padding: 25px;
+  border-top: 2px solid var(--main-color);
+}
+
+
+/* Стили для декоративного элемента в карточке*/
+
+.text-decorative-item {
+  font-family: var(--accent-font);
+  color: var(--main-color);
+  font-size: 0.875rem;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  filter: opacity(50%);
+  mix-blend-mode: hard-light;
+  -webkit-text-stroke: 1px var(--stroke-color);
+}
+
+/* Проверка поддержки свойства text-stroke */
+
+@supports(-webkit-text-stroke: 1px var(--stroke-color)) {
+  .text-decorative-item {
+    -webkit-text-stroke: 1px var(--stroke-color);
+    text-shadow: none;
+  }
+}
+
+/* Стили для изображения */
+
+img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  object-fit: cover;
+}
+
+/* Стили для второго изображения, где меняется контраст */
+
+.contrast {
+  filter: contrast(70%);
+}
+
+/* Стили для третьего изображения, где меняется насыщенность */
+
+.saturation {
+  filter: saturate(300%);
+}
+
+/* Стили для четвёртного изображения, где меняется цвет */
+
+.hue {
+  filter: hue-rotate(-90deg);
+}
+
+/* Стили для пятого изображения, где меняется оттенок серого */
+
+.gray-scale {
+  filter: grayscale(70%);
+}
+
+/* Стили для шестого изображения, где применяется несколько фильтров */
+
+.more-filters{
+  filter: sepia(1) contrast(2) brightness(200%);
+}
+
+/* Стили для седьмого изображения, где применяется сепия */
+
+.sepia {
+  filter: sepia(1);
+}
+
+/* Стили для восьмого изображения, где применяется несколько фильтров */
+
+.fire {
+  filter: brightness(150%) hue-rotate(15deg);
+}
+
+/* Стили для изображения автомобиля */
+
+.image-wrapper > img {
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
+}
+
+/* Стили для обёртки изображения */
+
+.image-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+
+/* Стили для обёртки изображений */
+
+.images-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  align-items: stretch;
+}
+
+/* Стили для верхнего изображения в обёртке */
+
+.photo-top {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+/* Стили для нижнего левого изображения в обёртке */
+
+.photo-bottom-left {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+/* Стили для нижнего правого изображения в обёртке */
+
+.photo-bottom-right {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+/* Общий стиль обычных кнопок */
+
+.button__style {
+  position: relative;
+  border: 2px solid currentColor;
+  background-color: var(--background-color);
+  padding: 9px 17px;
+  height: max(38px);
+  min-width: 130px;
+  width: 100%;
+  transition: 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+
+}
+
+/* Сбрасываем outline для обычной кнопки при focus */
+
+.button__style:focus {
+  outline: none;
+}
+
+/* Настраиваем focus-visible для обычной кнопки */
+
+.button__style:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--main-color);
+}
+
+/* Настраиваем псевдоэлемент для обычной кнопки */
+
+.button__style::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--main-color);
+  transform: translate(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+/* Настраиваем поведения псевдоэлемент для обычной кнопки при состоянии hover */
+
+.button__style:hover::before {
+  transform: translate(0);
+}
+
+/* Стили для обёртки кнопок */
+
+.card-bottom-section-wrapper-buttons {
+  display: flex;
+  gap: 7px;
+  flex-direction: row;
+  justify-self: right;
+  align-items: center;
+}
+
+/* Стили для кнопки "Сохранить на память" */
+
+.save-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  gap: 8px;
+  border: 2px solid currentColor;
+  padding: 15px 20px;
+  min-height: 55px;
+  height: 100%;
+  min-width: 330px;
+  width: fit-content;
+  transition: 0.3s ease;
+  background-color: var(--background-color);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+
+/* Сбрасываем outline для кнопки "Сохранить на память" при focus */
+
+.save-button:focus {
+  outline: none;
+}
+
+/* Настраиваем focus-visible для кнопки "Сохранить на память" */
+
+.save-button:focus-visible {
+  box-shadow: 2px 2px 0px 0px var(--main-color);
+}
+
+/* Стиль для псевдоэлемента для кнопки "Сохранить на память" */
+
+.save-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: var(--main-color);
+  transform: translate(-100%);
+  transition: 0.5s ease-in-out;
+}
+
+/* Настраиваем поведение псевдоэлемента для кнопки "сохранить на память" при состоянии hover */
+
+.save-button:hover::before {
+  transform: translate(0);
+}
+
+/* Стили для кнопки-иконки */
+
+.card__icon-button {
+  display: flex;
+  align-items: center;
+  inline-size: 38px;
+  block-size: 38px;
+  transition: 0.3s ease;
+  outline-offset: -2px;
+  outline: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* Стили для иконки лайка */
+
+.like-icon {
+  transform-origin: center;
+  width: 27px;
+  height: 24px;
+}
+
+/* Настраиваем поведение кнопки-иконки в состоянии focus */
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+/* Настраиваем поведением кнопки-иконки в состоянии focus-visible */
+
+.card__icon-button:focus-visible {
+  outline-offset: -2px;
+  outline: 2px solid var(--main-color);
+}
+
+/* Стили для поведения кнопки-иконки в состоянии hover */
+
+.card__icon-button:hover {
+  --core-color: var(--main-color);
+  --animation-fill-color: var(--main-color);
+  --core-duration: 0s;
+  --main-body-duration: 0.05s;
+}
+
+/* Стили для поведения кнопки-иконки в состоянии active */
+
+.card__icon-button:active {
+  --core-color: var(--heart-color);
+  --animation-fill-color: var(--heart-color);
+  --core-duration: 0s;
+  --main-body-duration: 0.05s;
+}
+
+/* Стили для поведения кнопки-иконки в состоянии clicked */
+
+.like-icon.is-liked {
+  --core-color: var(--heart-color);
+  --core-duration: 0s;
+  --animation-fill-color: var(--heart-color);
+  --main-body-duration: 0.05s;
+  --contour-color: var(--heart-color);
+  --contour-time: 0.3s;
+  --contour-duration: 0.06s;
+}
+
+/* Стили слоя искры в svg heart*/
+
+.like-icon.is-liked .sparks {
+  animation: sparks-animation 0.3s ease-in;
+  animation-delay: 0.3s;
+  animation-iteration-count:1;
+}
+
+
+/* Стили для svg-иконки heart */
+
+.like-icon.is-liked .heart {
+  transform-origin: center;
+  animation: scaling-animation 0.3s ease-in;
+  animation-delay: 0.1s;
+  animation-iteration-count:1;
+}
+
+/* Стили для контура иконки сердце в базовом состоянии */
+
+.contour {
+  transition: var(--contour-time) linear var(--contour-duration);
+}
+
+/* Стили для основного тела иконки сердца в базовом состоянии */
+
+.main-body {
+  transition: 0.3s linear var(--main-body-duration);
+}
+
+/* Стили для сердцевины иконки сердца в базовом состоянии */
+
+.core {
+  transition: 0.3s linear var(--core-duration);
+}
+
+/* Стили для свг-иконки дискеты */
+
+.diskette {
+  fill: var(--background-color);
+  mix-blend-mode: difference;
+  width: 21px;
+  height: 21px;
+
+}
+
+/* Общий стиль для текста во всех кнопках */
+
+.button__text {
+  font-family: var(--accent-font);
+  font-size: var(--button-font-size);
+  line-height: 90%;
+  color: var(--background-color);
+  mix-blend-mode: difference;
+}
+
+/* Стиль для диалогового окна в изначальном состоянии */
+
+dialog {
+  display: none;
+}
+
+/* Стиль для открытого диалогового окна  */
+
+dialog[open] {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  width: clamp(341px, 330px, 353px);
+  padding: 30px;
+  z-index: 1;
+}
+
+/* Стиль для заднего фона диалогового окна */
+
+dialog::backdrop {
+  background-color: var(--main-color);
+  filter: opacity(75%);
+}
+
+/* Стиль для заголовка в обёртке */
+
+.title-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Стиль для свг иконки в кнопке в диалоге */
+
+.title-wrapper > svg  {
+  width: max(39px);
+  height: max(39px);
+  flex-shrink: 0;
+}
+
+/* Стиль для заголовка в диалоге */
+
+.dialog-title {
+  font-family: var(--accent-font);
+  font-size: var(--button-font-size);
+  line-height: 150%;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* Стиль для заголовка в диалоге */
+
+.close-button {
+  border: 2px solid currentColor;
+  padding: 9px 17px;
+  height: max(38px);
+}
+
+
+/* Стиль для медиа-запроса */
+
+@media (width <= 375px) { /* ПРИ РОВНО 375px БЕЗ ПРИЧИНЫ НЕ РАБОТАЕТ. ИЗУЧИТЬ ПОСЛЕ ОС РЕВЬЮЕРА. */
+  .save-button {
+    flex-direction: column;
+  }
+
+  .diskette {
+    width: 28px;
+    height: 28px;
+  }
 }

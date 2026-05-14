@@ -51,3 +51,8 @@ ol {
   clip-path: inset(50%);
   white-space: nowrap;
 }
+
+button {
+  background-color: var(--background-color  );
+  border: 0px solid transparent;
+}

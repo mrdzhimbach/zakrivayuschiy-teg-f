@@ -1,1 +1,60 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  --main-font: 'Inter-Variable',sans-serif;
+  --accent-font: 'PressStart2P',serif;
+  --main-font-body-weight: 410;
+  --main-font-title-weight: 715;
+  --main-font-size: 1.125rem;
+  --main-font-line-height: 1.313rem;
+
+  /* Горизонтальный градиент */
+  --gradient-horizontal: repeating-linear-gradient(
+    to right, /* Слева направо */
+    var(--gradient-color), /* Начало серой полоски */
+    var(--gradient-color) 2px, /* Конец серой полоски */
+    transparent 2px, /* Начало прозрачной полоски */
+    transparent 4px  /* Конец прозрачной полоски  */
+  );
+
+  /* Вертикальный градиент */
+  --gradient-vertical: repeating-linear-gradient(
+    to bottom, /* Сверху вниз */
+    var(--gradient-color), /* Начало серой полоски */
+    var(--gradient-color) 2px, /* Конец серой полоски */
+    transparent 2px, /* Начало прозрачной полоски */
+    transparent 4px  /* Конец прозрачной полоски  */
+  );
+
+  /* Декоративный вертикальный градиент */
+  --gradient-vertical-decorative: linear-gradient(
+    to bottom,
+    var(--gradient-color-light) 0.01%,
+    var(--gradient-color-dark)
+  );
+
+  /* Цвета */
+  --gradient-color: #d3d3d3; /* Серый цвет для градиента */
+  --gradient-color-light: #e7e7e7; /* Белый оттенок для градиента */
+  --gradient-color-dark: #1a1a1a; /* Тёмный оттенок для градиента */
+  --background-color: #FFFFFF; /* Белый цвет для фонов */
+  --main-color: #000000; /* Черный цвет для текста, обводок и заливки для кнопки */
+  --heart-color: red;
+  --contour-color: var(--main-color);
+  --animation-fill-color: transparent;
+  --sparks-color: transparent;
+  --core-color: transparent;
+
+
+  --core-duration: 0.03s;
+  --main-body-duration: 0s;
+  --contour-duration: 0s;
+
+  --contour-time: 0.1s;
+
+
+  --stroke-color: var(--background-color);
+
+  --section-width: clamp(375px, 80vw, 700px);
+
+  --button-font-size: 0.875rem;
+}
