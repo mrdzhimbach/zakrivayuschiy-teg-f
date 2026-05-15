@@ -19,15 +19,13 @@
   }
 }
 
-
 @property --sparks-color {
-  syntax: '<color>';
+  syntax: "<color>";
   inherits: true;
   initial-value: transparent;
 }
 
 @keyframes sparks-animation {
-
   to {
     --sparks-color: var(--heart-color);
   }

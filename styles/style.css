@@ -10,23 +10,23 @@
 
 */
 
-
 /* Стили для основной страницы */
 
 .page {
   display: grid;
   gap: 100px;
   margin-top: 100px;
+  margin-bottom: 100px;
   justify-content: center;
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+  height: max-content;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--main-font-body-weight);
-  background-image: var(--gradient-horizontal), var(--gradient-vertical), var(--gradient-vertical-decorative);
+  font-variation-settings: "wght" var(--main-font-body-weight);
+  background-image:
+    var(--gradient-horizontal), var(--gradient-vertical),
+    var(--gradient-vertical-decorative);
   background-attachment: fixed;
   background-size: cover;
 }
-
 
 /* Стили для шапки страницы */
 
@@ -36,9 +36,7 @@
   text-align: center;
   gap: 20px;
   font-family: var(--accent-font);
-  padding:
-  clamp(122px, 10vw + 80px, 130px)
-  clamp(16px, 10vw, 122px);
+  padding: clamp(122px, 10vw + 80px, 130px) clamp(16px, 10vw, 122px);
   height: fit-content;
 }
 
@@ -50,7 +48,7 @@
 
 /* Стили для подзаголовка в шапке */
 
-.subtitle{
+.subtitle {
   font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1.4375rem);
   text-transform: uppercase;
 }
@@ -66,7 +64,7 @@
 
 /* Стили для заголовка в карточке  */
 
-.subsubtitle{
+.subsubtitle {
   font-size: var(--main-font-size);
   line-height: var(--main-font-line-height);
   font-variation-settings: "wght" var(--main-font-title-weight);
@@ -75,7 +73,7 @@
 
 /* Стили для обёртки основного контента */
 
-.content{
+.content {
   display: grid;
   gap: 50px;
   justify-items: center;
@@ -89,9 +87,7 @@
   font-size: var(--main-font-size);
   line-height: var(--main-font-line-height);
   padding: 25px;
-  border-top: 2px solid var(--main-color);
 }
-
 
 /* Стили для декоративного элемента в карточке*/
 
@@ -104,12 +100,16 @@
   right: 25px;
   filter: opacity(50%);
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--stroke-color);
+  text-shadow:
+    -1px -1px 0 var(--stroke-color),
+    1px -1px 0 var(--stroke-color),
+    -1px 1px 0 var(--stroke-color),
+    1px 1px 0 var(--stroke-color);
 }
 
 /* Проверка поддержки свойства text-stroke */
 
-@supports(-webkit-text-stroke: 1px var(--stroke-color)) {
+@supports (-webkit-text-stroke: 1px var(--stroke-color)) {
   .text-decorative-item {
     -webkit-text-stroke: 1px var(--stroke-color);
     text-shadow: none;
@@ -151,7 +151,7 @@ img {
 
 /* Стили для шестого изображения, где применяется несколько фильтров */
 
-.more-filters{
+.more-filters {
   filter: sepia(1) contrast(2) brightness(200%);
 }
 
@@ -167,13 +167,6 @@ img {
   filter: brightness(150%) hue-rotate(15deg);
 }
 
-/* Стили для изображения автомобиля */
-
-.image-wrapper > img {
-  border-top: 2px solid var(--main-color);
-  border-bottom: 2px solid var(--main-color);
-}
-
 /* Стили для обёртки изображения */
 
 .image-wrapper {
@@ -181,6 +174,8 @@ img {
   flex-direction: column;
   width: 100%;
   position: relative;
+  border-top: 2px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
 }
 
 /* Стили для обёртки изображений */
@@ -220,13 +215,16 @@ img {
   border: 2px solid currentColor;
   background-color: var(--background-color);
   padding: 9px 17px;
-  height: max(38px);
+  height: 100%;
   min-width: 130px;
   width: 100%;
   transition: 0.3s ease;
   overflow: hidden;
   cursor: pointer;
+}
 
+.dialog-button {
+  height: 38px;
 }
 
 /* Сбрасываем outline для обычной кнопки при focus */
@@ -244,7 +242,7 @@ img {
 /* Настраиваем псевдоэлемент для обычной кнопки */
 
 .button__style::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   right: 0;
@@ -265,6 +263,7 @@ img {
 
 .card-bottom-section-wrapper-buttons {
   display: flex;
+  block-size: 38px;
   gap: 7px;
   flex-direction: row;
   justify-self: right;
@@ -279,49 +278,8 @@ img {
   align-items: center;
   position: relative;
   gap: 8px;
-  border: 2px solid currentColor;
   padding: 15px 20px;
-  min-height: 55px;
-  height: 100%;
-  min-width: 330px;
   width: fit-content;
-  transition: 0.3s ease;
-  background-color: var(--background-color);
-  overflow: hidden;
-  cursor: pointer;
-}
-
-
-/* Сбрасываем outline для кнопки "Сохранить на память" при focus */
-
-.save-button:focus {
-  outline: none;
-}
-
-/* Настраиваем focus-visible для кнопки "Сохранить на память" */
-
-.save-button:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--main-color);
-}
-
-/* Стиль для псевдоэлемента для кнопки "Сохранить на память" */
-
-.save-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  background-color: var(--main-color);
-  transform: translate(-100%);
-  transition: 0.5s ease-in-out;
-}
-
-/* Настраиваем поведение псевдоэлемента для кнопки "сохранить на память" при состоянии hover */
-
-.save-button:hover::before {
-  transform: translate(0);
 }
 
 /* Стили для кнопки-иконки */
@@ -329,6 +287,7 @@ img {
 .card__icon-button {
   display: flex;
   align-items: center;
+  justify-content: center;
   inline-size: 38px;
   block-size: 38px;
   transition: 0.3s ease;
@@ -340,9 +299,10 @@ img {
 /* Стили для иконки лайка */
 
 .like-icon {
+  flex-shrink: 0;
   transform-origin: center;
-  width: 27px;
-  height: 24px;
+  width: 38px;
+  height: 38px;
 }
 
 /* Настраиваем поведение кнопки-иконки в состоянии focus */
@@ -393,9 +353,8 @@ img {
 .like-icon.is-liked .sparks {
   animation: sparks-animation 0.3s ease-in;
   animation-delay: 0.3s;
-  animation-iteration-count:1;
+  animation-iteration-count: 1;
 }
-
 
 /* Стили для svg-иконки heart */
 
@@ -403,7 +362,7 @@ img {
   transform-origin: center;
   animation: scaling-animation 0.3s ease-in;
   animation-delay: 0.1s;
-  animation-iteration-count:1;
+  animation-iteration-count: 1;
 }
 
 /* Стили для контура иконки сердце в базовом состоянии */
@@ -431,7 +390,6 @@ img {
   mix-blend-mode: difference;
   width: 21px;
   height: 21px;
-
 }
 
 /* Общий стиль для текста во всех кнопках */
@@ -478,10 +436,10 @@ dialog::backdrop {
 
 /* Стиль для свг иконки в кнопке в диалоге */
 
-.title-wrapper > svg  {
-  width: max(39px);
-  height: max(39px);
+.title-wrapper > svg {
   flex-shrink: 0;
+  width: 39px;
+  height: 39px;
 }
 
 /* Стиль для заголовка в диалоге */
@@ -494,22 +452,17 @@ dialog::backdrop {
   font-weight: 400;
 }
 
-/* Стиль для заголовка в диалоге */
-
-.close-button {
-  border: 2px solid currentColor;
-  padding: 9px 17px;
-  height: max(38px);
-}
-
-
 /* Стиль для медиа-запроса */
 
-@media (width <= 375px) { /* ПРИ РОВНО 375px БЕЗ ПРИЧИНЫ НЕ РАБОТАЕТ. ИЗУЧИТЬ ПОСЛЕ ОС РЕВЬЮЕРА. */
+@media (width <= 375px) {
+  /* ПРИ РОВНО 375px БЕЗ ПРИЧИНЫ НЕ РАБОТАЕТ. У РЕВЬЮЕРА РАБОТАЕТ, ВСЁ ОК */
+
+  /* Направление выравнивания контента в кнопке "сохранить на память" меняется на вертикальное */
   .save-button {
     flex-direction: column;
   }
 
+  /* Размер иконки дискеты при мобильном разрешении */
   .diskette {
     width: 28px;
     height: 28px;

@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --main-font: 'Inter-Variable',sans-serif;
-  --accent-font: 'PressStart2P',serif;
+  --main-font: "Inter-Variable", sans-serif;
+  --accent-font: "PressStart2P", fantasy;
   --main-font-body-weight: 410;
   --main-font-title-weight: 715;
   --main-font-size: 1.125rem;
@@ -9,20 +9,22 @@
 
   /* Горизонтальный градиент */
   --gradient-horizontal: repeating-linear-gradient(
-    to right, /* Слева направо */
-    var(--gradient-color), /* Начало серой полоски */
-    var(--gradient-color) 2px, /* Конец серой полоски */
-    transparent 2px, /* Начало прозрачной полоски */
-    transparent 4px  /* Конец прозрачной полоски  */
+    to right,
+    /* Слева направо */ var(--gradient-color),
+    /* Начало серой полоски */ var(--gradient-color) 2px,
+    /* Конец серой полоски */ transparent 2px,
+    /* Начало прозрачной полоски */ transparent 4px
+      /* Конец прозрачной полоски  */
   );
 
   /* Вертикальный градиент */
   --gradient-vertical: repeating-linear-gradient(
-    to bottom, /* Сверху вниз */
-    var(--gradient-color), /* Начало серой полоски */
-    var(--gradient-color) 2px, /* Конец серой полоски */
-    transparent 2px, /* Начало прозрачной полоски */
-    transparent 4px  /* Конец прозрачной полоски  */
+    to bottom,
+    /* Сверху вниз */ var(--gradient-color),
+    /* Начало серой полоски */ var(--gradient-color) 2px,
+    /* Конец серой полоски */ transparent 2px,
+    /* Начало прозрачной полоски */ transparent 4px
+      /* Конец прозрачной полоски  */
   );
 
   /* Декоративный вертикальный градиент */
@@ -36,7 +38,7 @@
   --gradient-color: #d3d3d3; /* Серый цвет для градиента */
   --gradient-color-light: #e7e7e7; /* Белый оттенок для градиента */
   --gradient-color-dark: #1a1a1a; /* Тёмный оттенок для градиента */
-  --background-color: #FFFFFF; /* Белый цвет для фонов */
+  --background-color: #ffffff; /* Белый цвет для фонов */
   --main-color: #000000; /* Черный цвет для текста, обводок и заливки для кнопки */
   --heart-color: red;
   --contour-color: var(--main-color);
@@ -44,13 +46,11 @@
   --sparks-color: transparent;
   --core-color: transparent;
 
-
   --core-duration: 0.03s;
   --main-body-duration: 0s;
   --contour-duration: 0s;
 
   --contour-time: 0.1s;
-
 
   --stroke-color: var(--background-color);
 
